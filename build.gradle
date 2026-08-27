@@ -1,23 +1,27 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
-
-group = 'org.example'
-version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("org.junit.jupiter:junit-jupiter:5.9.3")
-    testImplementation ("org.slf4j:slf4j-simple:2.0.17")
-    implementation("com.codeborne:selenide:7.9.4")
-    implementation("org.assertj:assertj-core:3.27.7")
-    implementation ("com.github.javafaker:javafaker:1.0.2")
+    testImplementation(
+            "io.rest-assured:rest-assured:6.0.0",
+            "io.rest-assured:json-schema-validator:6.0.0",
+            "org.junit.jupiter:junit-jupiter:5.14.3"
+    )
 }
 
-
-test {
+tasks.withType(Test) {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 }
