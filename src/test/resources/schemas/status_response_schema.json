@@ -1,0 +1,363 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome7",
+  "definitions": {
+    "Welcome7": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/State"
+        },
+        "origin": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "http"
+          ]
+        },
+        "browsers": {
+          "$ref": "#/definitions/Welcome7Browsers"
+        },
+        "sessions": {
+          "$ref": "#/definitions/Sessions"
+        },
+        "browserProtocols": {
+          "$ref": "#/definitions/BrowserProtocols"
+        },
+        "version": {
+          "type": "string"
+        },
+        "errors": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "browserProtocols",
+        "browsers",
+        "errors",
+        "origin",
+        "sessions",
+        "state",
+        "version"
+      ],
+      "title": "Welcome7"
+    },
+    "BrowserProtocols": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "android": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Android"
+          }
+        },
+        "chrome": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Android"
+          }
+        },
+        "firefox": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Android"
+          }
+        },
+        "msedge": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Android"
+          }
+        },
+        "playwright-chrome": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Android"
+          }
+        },
+        "playwright-chromium": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Android"
+          }
+        },
+        "playwright-firefox": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Android"
+          }
+        },
+        "playwright-msedge": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Android"
+          }
+        },
+        "playwright-webkit": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Android"
+          }
+        }
+      },
+      "required": [
+        "android",
+        "chrome",
+        "firefox",
+        "msedge",
+        "playwright-chrome",
+        "playwright-chromium",
+        "playwright-firefox",
+        "playwright-msedge",
+        "playwright-webkit"
+      ],
+      "title": "BrowserProtocols"
+    },
+    "Android": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "protocol": {
+          "$ref": "#/definitions/Protocol"
+        }
+      },
+      "required": [
+        "protocol"
+      ],
+      "title": "Android"
+    },
+    "Welcome7Browsers": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "android": {
+          "type": "integer"
+        },
+        "chrome": {
+          "type": "integer"
+        },
+        "firefox": {
+          "type": "integer"
+        },
+        "msedge": {
+          "type": "integer"
+        },
+        "playwright-chrome": {
+          "type": "integer"
+        },
+        "playwright-chromium": {
+          "type": "integer"
+        },
+        "playwright-firefox": {
+          "type": "integer"
+        },
+        "playwright-msedge": {
+          "type": "integer"
+        },
+        "playwright-webkit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "android",
+        "chrome",
+        "firefox",
+        "msedge",
+        "playwright-chrome",
+        "playwright-chromium",
+        "playwright-firefox",
+        "playwright-msedge",
+        "playwright-webkit"
+      ],
+      "title": "Welcome7Browsers"
+    },
+    "State": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "total": {
+          "type": "integer"
+        },
+        "used": {
+          "type": "integer"
+        },
+        "queued": {
+          "type": "integer"
+        },
+        "pending": {
+          "type": "integer"
+        },
+        "warmReady": {
+          "type": "integer"
+        },
+        "warmTotal": {
+          "type": "integer"
+        },
+        "hotReady": {
+          "type": "integer"
+        },
+        "hotTotal": {
+          "type": "integer"
+        },
+        "warmSlots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Slot"
+          }
+        },
+        "hotSlots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Slot"
+          }
+        },
+        "browsers": {
+          "$ref": "#/definitions/StateBrowsers"
+        },
+        "videos": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "browsers",
+        "hotReady",
+        "hotSlots",
+        "hotTotal",
+        "pending",
+        "queued",
+        "total",
+        "used",
+        "videos",
+        "warmReady",
+        "warmSlots",
+        "warmTotal"
+      ],
+      "title": "State"
+    },
+    "StateBrowsers": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "android": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Sessions"
+          }
+        },
+        "chrome": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Sessions"
+          }
+        },
+        "firefox": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Sessions"
+          }
+        },
+        "msedge": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Sessions"
+          }
+        },
+        "playwright-chrome": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Sessions"
+          }
+        },
+        "playwright-chromium": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Sessions"
+          }
+        },
+        "playwright-firefox": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Sessions"
+          }
+        },
+        "playwright-msedge": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Sessions"
+          }
+        },
+        "playwright-webkit": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Sessions"
+          }
+        }
+      },
+      "required": [
+        "android",
+        "chrome",
+        "firefox",
+        "msedge",
+        "playwright-chrome",
+        "playwright-chromium",
+        "playwright-firefox",
+        "playwright-msedge",
+        "playwright-webkit"
+      ],
+      "title": "StateBrowsers"
+    },
+    "Sessions": {
+      "type": "object",
+      "additionalProperties": false,
+      "title": "Sessions"
+    },
+    "Slot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "browser": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "pool": {
+          "type": "string"
+        },
+        "reservedBy": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "required": [
+        "browser",
+        "id",
+        "pool",
+        "protocol",
+        "reservedBy"
+      ],
+      "title": "Slot"
+    },
+    "Protocol": {
+      "type": "string",
+      "enum": [
+        "webdriver",
+        "playwright"
+      ],
+      "title": "Protocol"
+    }
+  }
+}

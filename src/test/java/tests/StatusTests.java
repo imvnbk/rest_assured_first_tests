@@ -3,7 +3,7 @@ package tests;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.is;
 
@@ -47,7 +47,7 @@ public class StatusTests {
     @Test
     public void chromeVersionsTest() {
         given()
-                //.log().all()
+                .log().all()
                 .when()
                 .get("https://selenoid.qa.guru/ui/status")
                 .then()
@@ -57,5 +57,17 @@ public class StatusTests {
                 .body("state.browsers.chrome", hasKey("151.0-min"))
                 .body("state.browsers.chrome", hasKey("152.0"))
                 .body("state.browsers.chrome", hasKey("152.0-min"));
+    }
+
+    @Test
+    public void statusSchemaTest() {
+        given()
+                .log().all()
+                .when()
+                .get("https://selenoid.qa.guru/ui/status")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .body(matchesJsonSchemaInClasspath("schemas/status_response_schema.json"));
     }
 }
