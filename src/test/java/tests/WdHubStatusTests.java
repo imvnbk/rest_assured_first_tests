@@ -11,17 +11,6 @@ import static org.hamcrest.Matchers.*;
 public class WdHubStatusTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка ответа 401 при запросе без авторизации")
-    public void unauthorizedStatusTest() {
-        given()
-                .when()
-                .get("/wd/hub/status")
-                .then()
-                .log().all()
-                .statusCode(401);
-    }
-
-    @Test
     @DisplayName("Проверка успешного ответа 200 при авторизации")
     public void statusTest() {
         given()
@@ -101,6 +90,18 @@ public class WdHubStatusTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Проверка требования Basic Authentication при отсутствии авторизации")
+    public void unauthorizedStatusTest() {
+        given()
+                .when()
+                .get("/wd/hub/status")
+                .then()
+                .log().all()
+                .statusCode(401)
+                .header("WWW-Authenticate", equalTo("Basic realm=\"Selenoid\""));
+    }
+
+    @Test
     @DisplayName("Проверка ответа 401 при неверном пароле")
     public void invalidPasswordTest() {
         given()
@@ -109,7 +110,8 @@ public class WdHubStatusTests extends TestBase {
                 .get("/wd/hub/status")
                 .then()
                 .log().all()
-                .statusCode(401);
+                .statusCode(401)
+                .header("WWW-Authenticate", containsString("Basic"));
     }
 
     @Test
@@ -121,6 +123,7 @@ public class WdHubStatusTests extends TestBase {
                 .get("/wd/hub/status")
                 .then()
                 .log().all()
-                .statusCode(401);
+                .statusCode(401)
+                .header("WWW-Authenticate", containsString("Basic"));
     }
 }
