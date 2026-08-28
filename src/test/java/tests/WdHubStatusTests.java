@@ -111,7 +111,7 @@ public class WdHubStatusTests extends TestBase {
                 .then()
                 .log().all()
                 .statusCode(401)
-                .header("WWW-Authenticate", containsString("Basic"));
+                .header("WWW-Authenticate", equalTo("Basic realm=\"Selenoid\""));
     }
 
     @Test
