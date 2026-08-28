@@ -1,180 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$ref": "#/definitions/Welcome7",
+  "$ref": "#/definitions/Welcome10",
   "definitions": {
-    "Welcome7": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "state": {
-          "$ref": "#/definitions/State"
-        },
-        "origin": {
-          "type": "string",
-          "format": "uri",
-          "qt-uri-protocols": [
-            "http"
-          ]
-        },
-        "browsers": {
-          "$ref": "#/definitions/Welcome7Browsers"
-        },
-        "sessions": {
-          "$ref": "#/definitions/Sessions"
-        },
-        "browserProtocols": {
-          "$ref": "#/definitions/BrowserProtocols"
-        },
-        "version": {
-          "type": "string"
-        },
-        "errors": {
-          "type": "array",
-          "items": {}
-        }
-      },
-      "required": [
-        "browserProtocols",
-        "browsers",
-        "errors",
-        "origin",
-        "sessions",
-        "state",
-        "version"
-      ],
-      "title": "Welcome7"
-    },
-    "BrowserProtocols": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "android": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/Android"
-          }
-        },
-        "chrome": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/Android"
-          }
-        },
-        "firefox": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/Android"
-          }
-        },
-        "msedge": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/Android"
-          }
-        },
-        "playwright-chrome": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/Android"
-          }
-        },
-        "playwright-chromium": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/Android"
-          }
-        },
-        "playwright-firefox": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/Android"
-          }
-        },
-        "playwright-msedge": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/Android"
-          }
-        },
-        "playwright-webkit": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/Android"
-          }
-        }
-      },
-      "required": [
-        "android",
-        "chrome",
-        "firefox",
-        "msedge",
-        "playwright-chrome",
-        "playwright-chromium",
-        "playwright-firefox",
-        "playwright-msedge",
-        "playwright-webkit"
-      ],
-      "title": "BrowserProtocols"
-    },
-    "Android": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "protocol": {
-          "$ref": "#/definitions/Protocol"
-        }
-      },
-      "required": [
-        "protocol"
-      ],
-      "title": "Android"
-    },
-    "Welcome7Browsers": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "android": {
-          "type": "integer"
-        },
-        "chrome": {
-          "type": "integer"
-        },
-        "firefox": {
-          "type": "integer"
-        },
-        "msedge": {
-          "type": "integer"
-        },
-        "playwright-chrome": {
-          "type": "integer"
-        },
-        "playwright-chromium": {
-          "type": "integer"
-        },
-        "playwright-firefox": {
-          "type": "integer"
-        },
-        "playwright-msedge": {
-          "type": "integer"
-        },
-        "playwright-webkit": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "android",
-        "chrome",
-        "firefox",
-        "msedge",
-        "playwright-chrome",
-        "playwright-chromium",
-        "playwright-firefox",
-        "playwright-msedge",
-        "playwright-webkit"
-      ],
-      "title": "Welcome7Browsers"
-    },
-    "State": {
+    "Welcome10": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -215,11 +43,7 @@
           }
         },
         "browsers": {
-          "$ref": "#/definitions/StateBrowsers"
-        },
-        "videos": {
-          "type": "array",
-          "items": {}
+          "$ref": "#/definitions/Browsers"
         }
       },
       "required": [
@@ -231,69 +55,68 @@
         "queued",
         "total",
         "used",
-        "videos",
         "warmReady",
         "warmSlots",
         "warmTotal"
       ],
-      "title": "State"
+      "title": "Welcome10"
     },
-    "StateBrowsers": {
+    "Browsers": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "android": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/definitions/Sessions"
+            "$ref": "#/definitions/Android"
           }
         },
         "chrome": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/definitions/Sessions"
+            "$ref": "#/definitions/Android"
           }
         },
         "firefox": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/definitions/Sessions"
+            "$ref": "#/definitions/Android"
           }
         },
         "msedge": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/definitions/Sessions"
+            "$ref": "#/definitions/Android"
           }
         },
         "playwright-chrome": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/definitions/Sessions"
+            "$ref": "#/definitions/Android"
           }
         },
         "playwright-chromium": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/definitions/Sessions"
+            "$ref": "#/definitions/Android"
           }
         },
         "playwright-firefox": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/definitions/Sessions"
+            "$ref": "#/definitions/Android"
           }
         },
         "playwright-msedge": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/definitions/Sessions"
+            "$ref": "#/definitions/Android"
           }
         },
         "playwright-webkit": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/definitions/Sessions"
+            "$ref": "#/definitions/Android"
           }
         }
       },
@@ -308,12 +131,12 @@
         "playwright-msedge",
         "playwright-webkit"
       ],
-      "title": "StateBrowsers"
+      "title": "Browsers"
     },
-    "Sessions": {
+    "Android": {
       "type": "object",
       "additionalProperties": false,
-      "title": "Sessions"
+      "title": "Android"
     },
     "Slot": {
       "type": "object",
@@ -350,14 +173,6 @@
         "reservedBy"
       ],
       "title": "Slot"
-    },
-    "Protocol": {
-      "type": "string",
-      "enum": [
-        "webdriver",
-        "playwright"
-      ],
-      "title": "Protocol"
     }
   }
 }

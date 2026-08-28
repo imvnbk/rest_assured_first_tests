@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome4",
+  "definitions": {
+    "Welcome4": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "#/definitions/Value"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "Welcome4"
+    },
+    "Value": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "ready": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "message",
+        "ready"
+      ],
+      "title": "Value"
+    }
+  }
+}
